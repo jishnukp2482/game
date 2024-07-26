@@ -12,8 +12,10 @@ class FruitMenu extends StatelessWidget {
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
     return Consumer<HomeProvider>(builder: (context, value, child) {
-      return SizedBox(
+      return Container(
+        // color: AppColors.black,
         height: h * 0.1,
+        width: w,
         child: ListView.builder(
           shrinkWrap: true,
           itemCount: value.fruitList.length,
@@ -53,25 +55,25 @@ class FruitItem extends StatelessWidget {
           width: w * 0.15,
         ),
         onDragStarted: () {
-          homeProvider.isDragStarted = true;
-          debugPrint("isDargStarted ==${homeProvider.isDragStarted}");
+          if (!homeProvider.isDragging) {
+            homeProvider.isDragStarted = true;
+            homeProvider.startDragging();
+            debugPrint("isDargStarted ==${homeProvider.isDragStarted}");
+          }
         },
         onDraggableCanceled: (velocity, offset) {
+          homeProvider.stopDragging();
           homeProvider.isDragStarted = false;
           debugPrint("isDargCancelled ==${homeProvider.isDragStarted}");
+        },
+        onDragEnd: (details) {
+          homeProvider.stopDragging();
+          homeProvider.isDragStarted = false;
+          debugPrint("isDragEnd ==${homeProvider.isDragStarted}");
         },
         child: Container(
           width: w * 0.15,
           decoration: BoxDecoration(
-            // boxShadow: [
-            //   BoxShadow(
-            //       color: AppColors.black.withOpacity(0.5),
-            //       blurStyle: BlurStyle.normal,
-            //       blurRadius: w * 9,
-            //       spreadRadius: 8,
-            //       offset: Offset(h * 0.03, w * 0.1)),
-            // ],
-            // color: Colors.amber,
             image: DecorationImage(
                 image: AssetImage(fruitModal.fruitImg), fit: BoxFit.contain),
           ),

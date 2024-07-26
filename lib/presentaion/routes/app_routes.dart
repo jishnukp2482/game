@@ -1,3 +1,4 @@
+import 'package:game/presentaion/pages/complete_Page.dart';
 import 'package:game/presentaion/pages/home_page.dart';
 import 'package:game/presentaion/pages/splash_screen.dart';
 import 'package:game/presentaion/routes/app_pages.dart';
@@ -13,6 +14,10 @@ class AppRoutes {
      GoRoute(
       path: AppPages.homepage,
       builder: (context, state) => HomePage(),
+    ),
+     GoRoute(
+      path: AppPages.completePage,
+      builder: (context, state) => CompletePage(),
     ),
   ]);
 }

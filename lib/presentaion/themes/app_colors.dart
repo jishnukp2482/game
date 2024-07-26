@@ -17,7 +17,7 @@ class AppColors {
   static const offWhite = Color(0xFFf5f5f5);
   static const offWhite1 = Color(0xFFF7F7F7);
   static const offBlack = Color(0xFF2E2E2E);
-  static const skyBlue = Color(0xFF4CA0C6);
+  static const skyBlue = Color(0xFFade2ff);
   static const green = Color(0xFF1AA37B);
   static const greyText = Color(0xFFA4A4A4);
   static const brown = Color(0xFFAA1D1D);
@@ -34,5 +34,6 @@ class AppColors {
   static const lightBlue = Color(0xff63ace5);
   static const peach = Color(0xffFF6D6D);
   static const transparent = Colors.transparent;
-  static const yellow = Colors.yellow;
+  static const yellow = Color(0xfff1b824);
+  static const whitchOpacity=Color(0xffe6e6e6);
 }
